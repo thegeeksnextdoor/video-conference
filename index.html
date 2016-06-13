@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+body {
+	background-color: #3D6DF2;
+	margin-top: 15px;
+}
+
+video {
+	background: black;
+	border: 1px solid gray;
+}
+
+#container {
+	position: relative;
+	display: block;
+	margin: 0 auto;
+	width: 50px;
+	height: 50px;
+}
+
+#remoteVideoContainer {
+	position: relative;
+	display: block;
+	margin: 0 auto;
+	width: 100px;
+	height: 100px;
+}
+</style>
+</head>
+
+<body>
+	<form>
+		Command: <br /> <input type="text" id="command"
+			onkeypress="sendName(event)" /> <br /> Create Room: <br /> <input
+			type="text" id="createroom" onkeypress="cRoom(event)" /> <br />
+		Join Room: <br /> <input type="text" id="joinroom"
+			onkeypress="jRoom(event)" /> <br /> Feedback: <br /> <input
+			type="text" id="feedback" /> <br /> All peers: <br /> <input
+			type="text" id="peer" /><br /> Chat: <br /> <input type="text"
+			id="chat" onkeypress="sendChatMessage(event)" /><br />Message Box: <br />
+		<textarea id="messageBox"></textarea>
+	</form>
+	<button onclick="muteVideo()">mute video</button>
+	<button onclick="muteAudio()">mute audio</button>
+	<button onclick="unmuteVideo()">unmute video</button>
+	<button onclick="unmuteAudio()">unmute audio</button>
+	<button onclick="getPeers()">get peers</button>
+	<button onclick="sendChatMessage()">chat!</button>
+	<title>p2p video conference</title>
+
+	<div id="container">
+		<video id="localVideo" width="50" height="50" autoplay></video>
+	</div>
+
+	<div id="remoteVideoContainer"></div>
+	<script
+		src="node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script>
+	<script src="adapter.js"></script>
+	<!-- 	
+	<script src="indicator.js"></script>
+	<script src="peerconnection.js"></script>
+	<script src="allconnection.js"></script>
+	<script src="webrtc.js"></script> -->
+	<script src="bundle.js"></script>
+	<script src="client.js"></script>
+
+</body>
+</html>
